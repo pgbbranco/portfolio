@@ -485,6 +485,28 @@
       text-decoration: underline; 
     }
 
+    /* Botão "O que é o MUNDO SENAI?" */
+    .btn-info-senai {
+      display: inline-block;
+      margin-bottom: 12px;
+      background: var(--bg-light);
+      color: var(--accent);
+      border: 1px solid var(--card-border);
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-family: var(--font-title);
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-info-senai:hover {
+      background: var(--accent);
+      color: #ffffff;
+      border-color: var(--accent);
+    }
+
     /* Imagem fixa dentro do card */
     .entrega-image {
       margin-bottom: 14px;
@@ -507,7 +529,86 @@
       transform: scale(1.01);
     }
 
-    /* Lightbox para ampliar a imagem da entrega */
+    /* Dialog / Modal "O que é o MUNDO SENAI?" */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 300;
+      background: rgba(43, 33, 26, 0.7);
+      backdrop-filter: blur(5px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      animation: fadeIn 0.3s ease-out;
+    }
+
+    .modal-overlay.open {
+      display: flex;
+    }
+
+    .modal-box {
+      background: var(--panel-bg);
+      border: 2px solid var(--accent);
+      border-radius: 18px;
+      max-width: 550px;
+      width: 100%;
+      padding: 30px;
+      box-shadow: 0 20px 50px rgba(43, 33, 26, 0.25);
+      animation: slideUp 0.3s ease-out;
+      position: relative;
+    }
+
+    .modal-box h3 {
+      font-family: var(--font-title);
+      font-size: 1.8rem;
+      color: var(--accent);
+      margin-top: 0;
+      margin-bottom: 15px;
+      font-weight: 800;
+      border-bottom: 2px solid #EFE6D8;
+      padding-bottom: 8px;
+    }
+
+    .modal-box p {
+      font-size: 1rem;
+      color: var(--text-main);
+      margin-bottom: 15px;
+      line-height: 1.6;
+    }
+
+    .modal-box ul {
+      margin: 0 0 20px 0;
+      padding-left: 20px;
+      color: var(--text-muted);
+    }
+
+    .modal-box ul li {
+      margin-bottom: 8px;
+    }
+
+    .btn-modal-close {
+      background: var(--accent);
+      color: #ffffff;
+      border: none;
+      padding: 12px 28px;
+      border-radius: 30px;
+      font-family: var(--font-title);
+      font-size: 1rem;
+      font-weight: 800;
+      cursor: pointer;
+      display: block;
+      margin-left: auto;
+      transition: background 0.2s, transform 0.2s;
+      box-shadow: 0 4px 15px rgba(217, 72, 28, 0.25);
+    }
+
+    .btn-modal-close:hover {
+      background: var(--accent-hover);
+      transform: scale(1.03);
+    }
+
+    /* Lightbox para ampliar a imagem das entregas */
     .lightbox {
       position: fixed;
       inset: 0;
@@ -804,6 +905,29 @@
           </div>
         </div>
 
+        <!-- ENTREGA 06: MUNDO SENAI 2026 -->
+        <div class="timeline-item right">
+          <div class="timeline-dot"></div>
+
+          <div class="card">
+            <h3>Mundo SENAI 2026</h3>
+            <span class="date">Entrega 06</span>
+
+            <button class="btn-info-senai" onclick="openSenaiModal()">❓ O que é o MUNDO SENAI?</button>
+
+            <!-- Recipiente reservado para imagens/vídeos (será ativado quando enviar os ficheiros) -->
+            <div class="entrega-image" style="display: none;" id="senai-media-container">
+              <img class="entrega-img" id="senai-img" src="" alt="Registo da apresentação Mundo SENAI 2026" onclick="openLightbox(this.src)">
+            </div>
+
+            <p>
+              Apresentação prática dos projetos desenvolvidos no curso para visitantes e comunidade, vivenciando a experiência de demonstrar sistemas no mundo do trabalho.
+            </p>
+
+            <a href="https://github.com/pgbbranco/mundo-senai" target="_blank">Acessar Repositório ↗</a>
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -814,13 +938,32 @@
     </footer>
   </div>
 
-  <!-- Lightbox para ampliar a imagem das entregas -->
+  <!-- Dialog / Modal Pop-up "O que é o MUNDO SENAI?" -->
+  <div class="modal-overlay" id="senai-modal" onclick="closeSenaiModalOutside(event)">
+    <div class="modal-box">
+      <h3>O que é o MUNDO SENAI?</h3>
+      <p>
+        No <strong>Mundo SENAI</strong>, a escola abre as suas portas para a comunidade e os estudantes apresentam o que aprenderam para os visitantes.
+      </p>
+      <p>
+        Apresentar para quem não conhece o assunto é uma das experiências mais próximas do mundo do trabalho.
+      </p>
+      <ul>
+        <li>Exposição de estandes e projetos práticos.</li>
+        <li>Demonstração ao vivo para a comunidade e docentes.</li>
+        <li>Registo de feedbacks e reflexão de pontos a melhorar.</li>
+      </ul>
+      <button class="btn-modal-close" onclick="closeSenaiModal()">OK, entendi!</button>
+    </div>
+  </div>
+
+  <!-- Lightbox para ampliar imagens -->
   <div class="lightbox" id="lightbox" onclick="closeLightbox()">
-    <img id="lightbox-img" src="" alt="Imagem ampliada da entrega">
+    <img id="lightbox-img" src="" alt="Imagem ampliada">
   </div>
 
   <script>
-    // AUDIO CONFIG
+    // Configuração do Áudio de Clima
     const rainAudio = new Audio('https://actions.google.com/sounds/v1/weather/rain_heavy_loud.ogg');
     rainAudio.loop = true; 
     rainAudio.volume = 0.12;
@@ -986,6 +1129,22 @@
     resize(); 
     draw();
 
+    // Dialog / Modal "O que é o MUNDO SENAI?"
+    function openSenaiModal() {
+      document.getElementById('senai-modal').classList.add('open');
+    }
+
+    function closeSenaiModal() {
+      document.getElementById('senai-modal').classList.remove('open');
+    }
+
+    function closeSenaiModalOutside(event) {
+      if (event.target.id === 'senai-modal') {
+        closeSenaiModal();
+      }
+    }
+
+    // Lightbox
     function openLightbox(src) {
       document.getElementById('lightbox-img').src = src;
       document.getElementById('lightbox').classList.add('open');
