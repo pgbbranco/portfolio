@@ -903,13 +903,11 @@
 
             <button class="btn-info-senai" onclick="openSenaiModal()">❓ O que é o MUNDO SENAI?</button>
 
-            <!-- Recipiente reservado para imagens/vídeos (será ativado quando enviar os ficheiros) -->
-            <div class="entrega-image" style="display: none;" id="senai-media-container">
-              <img class="entrega-img" id="senai-img" src="" alt="Registo da apresentação Mundo SENAI 2026" onclick="openLightbox(this.src)">
-            </div>
+            <!-- Foto do evento: aparece automaticamente quando estande.jpg for publicado -->
+            <div class="entrega-image"><img class="entrega-img" src="https://raw.githubusercontent.com/pgbbranco/mundo-senai/main/fotos/estande.jpg" alt="Foto do Mundo SENAI" onclick="openLightbox(this.src)" onerror="this.closest('.entrega-image').style.display='none'"></div>
 
             <p>
-              Apresentação prática dos projetos desenvolvidos no curso para visitantes e comunidade, vivenciando a experiência de demonstrar sistemas no mundo do trabalho.
+              Grupo 2 — Front-end na prática. Os visitantes modificavam a interface por meio de um controlador interativo. Minha fala abordou AI Slop, seus sinais e como evitá-lo com revisão e decisões conscientes de design.
             </p>
 
             <a href="https://github.com/pgbbranco/mundo-senai" target="_blank" rel="noopener noreferrer">Acessar Repositório ↗</a>
