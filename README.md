@@ -10,7 +10,7 @@ Meu cartão de visitas: apresentação pessoal e resumo das entregas.
 | --- | --- |
 | Capa do Meu Álbum | [capa-do-album](https://github.com/pgbbranco/capa-do-album) |
 | Mundo SENAI 2026 | [mundo-senai](https://github.com/pgbbranco/mundo-senai) |
-| Árvore das Profissões | [06-arvore-e-ancoras](https://github.com/pgbbranco/06-arvore-e-ancoras) |
+| Árvore das Profissões | [arvore-das-profissoes](https://github.com/pgbbranco/arvore-das-profissoes) |
 
 As demais entregas aguardam publicação dos materiais.
 
