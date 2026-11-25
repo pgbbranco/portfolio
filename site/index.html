@@ -485,39 +485,21 @@
       text-decoration: underline; 
     }
 
-    /* Botão "O que é o MUNDO SENAI?" */
-    .btn-info-senai {
-      display: inline-block;
-      margin-bottom: 12px;
-      background: var(--bg-light);
-      color: var(--accent);
-      border: 1px solid var(--card-border);
-      padding: 6px 14px;
-      border-radius: 8px;
-      font-family: var(--font-title);
-      font-size: 0.85rem;
-      font-weight: 700;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-
     .senai-acoes {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      grid-auto-rows: 1fr;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
       gap: 6px;
-      max-width: 23rem;
       margin-bottom: 12px;
     }
 
-    .senai-acoes > .date, .senai-acoes > .btn-info-senai {
-      display: grid;
-      place-items: center;
-      text-align: center;
-      margin: 0;
-      padding: 5px 8px;
-      border-radius: 6px;
-      min-height: 32px;
+    .card .senai-acoes .date {
+      margin-bottom: 0;
+    }
+
+    .senai-acoes .btn-info-senai {
+      cursor: pointer;
+      text-transform: none;
     }
 
     .btn-info-senai:hover {
@@ -909,7 +891,7 @@
             <h3>Mundo SENAI 2026</h3>
             <div class="senai-acoes">
               <span class="date">Entrega 06</span>
-              <button class="btn-info-senai" onclick="openSenaiModal()">O que é o MUNDO SENAI?</button>
+              <button type="button" class="date btn-info-senai" onclick="openSenaiModal()">O que é o MUNDO SENAI?</button>
             </div>
 
             <!-- Foto do evento: aparece automaticamente quando estande.jpg for publicado -->
@@ -920,7 +902,7 @@
             </p>
 
                         <a href="https://v0-frontshit.vercel.app/" target="_blank" rel="noopener noreferrer">Ver Apresentação ↗</a>
-            <a href="https://github.com/pgbbranco/mundo-senai" target="_blank" rel="noopener noreferrer">Acessar Repositório ↗</a>
+            <a href="https://github.com/pgbbranco/mundo-senai/tree/main/apresentacao-grupo-2" target="_blank" rel="noopener noreferrer">Acessar pasta ↗</a>
           </div>
         </div>
 
