@@ -28,13 +28,11 @@
       /* Cards Internos (Estilo Pasta de Arquivo) */
       --card-bg: #FFFFFF; 
       --card-border: #E2D7C8;
-      --card-border-hover: #D9481C;
       --card-text-main: #2B211A; 
       --card-text-muted: #6B5B50;
       
       /* Cores de Destaque */
       --accent: #D9481C;
-      --accent-secondary: #8B5E3C;
       --accent-hover: #B53610;
     }
 
@@ -54,7 +52,7 @@
       overflow-x: hidden; 
     }
 
-    /* Fundo e Clima */
+    /* Fundo */
     .bg { position: fixed; inset: 0; z-index: 0; overflow: hidden; }
 
     .bg__image { 
@@ -75,182 +73,6 @@
         rgba(245, 239, 230, 0.6) 0%, 
         rgba(245, 239, 230, 0.95) 100%
       ); 
-    }
-
-    canvas#rain-canvas { 
-      position: absolute; 
-      inset: 0; 
-      z-index: 1; 
-      pointer-events: none; 
-    }
-
-    .lightning-overlay { 
-      position: fixed; 
-      top: 0; 
-      left: 0; 
-      width: 100%; 
-      height: 60vh; 
-      background: radial-gradient(
-        circle at top, 
-        rgba(217, 72, 28, 0.15) 0%, 
-        transparent 70%
-      ); 
-      opacity: 0; 
-      z-index: 2; 
-      pointer-events: none; 
-      transition: opacity 0.8s ease-out; 
-    }
-
-    /* Flag / Menu Dropdown */
-    .top-flag-container { 
-      position: fixed; 
-      top: 0; 
-      right: 40px; 
-      z-index: 20; 
-      display: flex; 
-      flex-direction: column; 
-      align-items: flex-end; 
-    }
-
-    .flag-btn { 
-      background: var(--accent); 
-      color: #ffffff; 
-      border: none; 
-      padding: 10px 24px; 
-      border-radius: 0 0 14px 14px; 
-      font-family: var(--font-title);
-      font-weight: 800; 
-      font-size: 0.95rem; 
-      letter-spacing: 0.5px;
-      cursor: pointer; 
-      display: flex; 
-      align-items: center; 
-      gap: 8px; 
-      box-shadow: 0 6px 20px rgba(217, 72, 28, 0.25); 
-      transition: transform 0.2s, background 0.2s; 
-    }
-
-    .flag-btn:hover { 
-      transform: translateY(3px); 
-      background: var(--accent-hover); 
-    }
-    
-    .dropdown-panel { 
-      background: var(--panel-bg); 
-      border: 1px solid var(--panel-border); 
-      border-radius: 16px 0 16px 16px; 
-      margin-top: 8px; 
-      max-height: 0; 
-      overflow: hidden; 
-      opacity: 0; 
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); 
-      display: flex; 
-      flex-direction: column; 
-      gap: 15px; 
-    }
-
-    .dropdown-panel.open { 
-      max-height: 300px; 
-      padding: 20px; 
-      opacity: 1; 
-      box-shadow: 0 15px 35px rgba(43, 33, 26, 0.1); 
-    }
-
-    .action-buttons { 
-      display: flex; 
-      flex-direction: column; 
-      gap: 8px; 
-    }
-
-    .control-btn { 
-      background: var(--bg-light); 
-      color: var(--text-main); 
-      border: 1px solid var(--card-border); 
-      padding: 10px 16px; 
-      border-radius: 10px; 
-      cursor: pointer; 
-      font-weight: 600; 
-      transition: all 0.2s; 
-      display: flex; 
-      align-items: center; 
-      justify-content: center; 
-      gap: 8px; 
-    }
-
-    .control-btn:hover { 
-      background: #EFE6D8; 
-      border-color: var(--accent); 
-    }
-
-    /* Player de Música */
-    .music-widget { 
-      display: flex; 
-      align-items: center; 
-      gap: 12px; 
-      background: var(--bg-light); 
-      padding: 10px; 
-      border-radius: 40px 12px 12px 40px; 
-      border: 1px solid var(--card-border); 
-      transition: border-color 0.3s; 
-    }
-
-    .music-widget.active { 
-      border-color: var(--accent); 
-    }
-
-    .music-widget img { 
-      width: 44px; 
-      height: 44px; 
-      border-radius: 50%; 
-      object-fit: cover; 
-      animation: spin 4s linear infinite; 
-      animation-play-state: paused; 
-      -webkit-mask-image: radial-gradient(
-        circle at center, 
-        transparent 15%, 
-        black 16%
-      ); 
-      mask-image: radial-gradient(
-        circle at center, 
-        transparent 15%, 
-        black 16%
-      ); 
-      border: 2px solid var(--card-border); 
-    }
-
-    .music-widget.active img { 
-      animation-play-state: running; 
-    }
-
-    .music-info { 
-      display: flex; 
-      flex-direction: column; 
-      line-height: 1.2; 
-      padding-right: 10px; 
-    }
-
-    .music-info .title { 
-      font-family: var(--font-title); 
-      font-size: 0.95rem; 
-      font-weight: 700; 
-      color: var(--text-main); 
-    }
-
-    .music-info .artist { 
-      font-size: 0.8rem; 
-      color: var(--accent); 
-      font-weight: 600; 
-    }
-
-    .sound-hint { 
-      position: fixed; 
-      top: 60px; 
-      right: 40px; 
-      font-size: 0.8rem; 
-      color: var(--text-muted); 
-      opacity: 0.85; 
-      z-index: 5; 
-      font-weight: 500; 
     }
 
     /* Estrutura Principal */
@@ -303,9 +125,10 @@
     }
     
     .avatar { 
+      display: inline-block;
       width: 170px; 
       height: 170px; 
-      object-fit: cover; 
+      overflow: hidden;
       background: var(--panel-bg); 
       border: 3px solid var(--accent); 
       box-shadow: 0 10px 25px rgba(217, 72, 28, 0.12); 
@@ -313,6 +136,14 @@
       animation: morphLiquid 6s ease-in-out infinite; 
     }
     
+    .avatar img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(1);
+    }
+
     /* Box Principal */
     .section { 
       background: var(--panel-bg); 
@@ -347,97 +178,34 @@
       font-weight: 700; 
     }
 
-    /* Linha do Tempo */
-    .timeline { 
-      position: relative; 
-      max-width: 100%; 
-      margin: 0 auto; 
+    .entregas {
+      display: grid;
+      gap: 20px;
     }
 
-    .timeline::after { 
-      content: ''; 
-      position: absolute; 
-      width: 2px; 
-      background: linear-gradient(
-        to bottom, 
-        transparent, 
-        var(--card-border) 10%, 
-        var(--card-border) 90%, 
-        transparent
-      ); 
-      top: 0; 
-      bottom: 0; 
-      left: 50%; 
-      margin-left: -1px; 
+    .card {
+      display: grid;
+      grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr);
+      grid-template-areas: "imagem texto";
+      align-items: center;
+      gap: clamp(20px, 3.2vw, 36px);
+      padding: clamp(16px, 2.5vw, 26px);
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      color: var(--card-text-main);
     }
 
-    .timeline-item { 
-      padding: 10px 40px; 
-      position: relative; 
-      width: 50%; 
-      margin-bottom: 20px; 
+    .card:nth-child(even) {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.65fr);
+      grid-template-areas: "texto imagem";
     }
 
-    .timeline-item.left { 
-      left: 0; 
-      text-align: right; 
+    .entrega-texto {
+      grid-area: texto;
+      min-width: 0;
     }
 
-    .timeline-item.right { 
-      left: 50%; 
-      text-align: left; 
-    }
-
-    .timeline-dot { 
-      position: absolute; 
-      width: 20px; 
-      height: 20px; 
-      background-color: var(--accent); 
-      border: 4px solid var(--panel-bg); 
-      border-radius: 50%; 
-      top: 30px; 
-      z-index: 2; 
-      transition: all 0.3s ease; 
-      box-shadow: 0 0 8px rgba(217, 72, 28, 0.3); 
-    }
-
-    .timeline-item.left .timeline-dot { 
-      right: -10px; 
-    }
-
-    .timeline-item.right .timeline-dot { 
-      left: -10px; 
-    }
-
-    .timeline-item:hover .timeline-dot { 
-      background-color: var(--text-main); 
-      transform: scale(1.3); 
-    }
-
-    /* CARDS - Estilo Pasta de Arquivo com Aba Topo */
-    .card { 
-      background: var(--card-bg); 
-      border: 1px solid var(--card-border); 
-      border-top: 4px solid var(--accent-secondary); 
-      border-radius: 12px; 
-      padding: 22px 24px; 
-      color: var(--card-text-main); 
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
-      position: relative; 
-      overflow: hidden; 
-      display: inline-block; 
-      width: 100%; 
-      text-align: left; 
-      box-shadow: 0 4px 14px rgba(43, 33, 26, 0.05);
-    }
-
-    .card:hover { 
-      transform: translateY(-5px); 
-      border-top-color: var(--accent);
-      border-color: var(--card-border-hover);
-      box-shadow: 0 14px 28px rgba(217, 72, 28, 0.12); 
-    }
-    
     .card h3 { 
       font-family: var(--font-title);
       margin: 0 0 6px 0; 
@@ -465,8 +233,14 @@
     .card p { 
       color: var(--card-text-muted); 
       font-size: 0.95rem; 
-      margin-bottom: 16px; 
+      margin: 0 0 16px;
       line-height: 1.5; 
+    }
+
+    .entrega-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 16px;
     }
 
     .card a { 
@@ -508,26 +282,31 @@
       border-color: var(--accent);
     }
 
-    /* Imagem fixa dentro do card */
     .entrega-image {
-      margin-bottom: 14px;
+      grid-area: imagem;
+      width: 100%;
+      padding: 0;
+      background: var(--panel-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      cursor: zoom-in;
+      overflow: hidden;
+    }
+
+    .entrega-image:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
     }
 
     .entrega-img {
       display: block;
       width: 100%;
-      max-height: 220px;
-      object-fit: cover;
-      border-radius: 8px;
-      border: 1px solid var(--card-border);
-      margin-bottom: 10px;
-      cursor: zoom-in;
-      transition: opacity 0.2s, transform 0.2s;
+      height: auto;
     }
 
-    .entrega-img:hover {
-      opacity: 0.9;
-      transform: scale(1.01);
+    .card:has(.entrega-image[hidden]) {
+      grid-template-columns: minmax(0, 1fr);
+      grid-template-areas: "texto";
     }
 
     /* Dialog / Modal "O que é o MUNDO SENAI?" */
@@ -665,12 +444,6 @@
       transform: scale(1.05); 
     }
 
-    @keyframes spin { 
-      100% { 
-        transform: rotate(360deg); 
-      } 
-    }
-
     @keyframes fadeIn { 
       from { 
         opacity: 0; 
@@ -718,29 +491,19 @@
         height: 140px; 
       }
 
-      .timeline::after { 
-        left: 20px; 
+      .wrap {
+        padding-inline: 14px;
       }
 
-      .timeline-item { 
-        width: 100%; 
-        padding: 10px 0 10px 50px; 
+      .section {
+        padding: 20px;
       }
 
-      .timeline-item.left, 
-      .timeline-item.right { 
-        left: 0; 
-        text-align: left; 
-      }
-
-      .timeline-item.left .timeline-dot, 
-      .timeline-item.right .timeline-dot { 
-        left: 10px; 
-        right: auto; 
-      }
-
-      .top-flag-container { 
-        right: 15px; 
+      .card,
+      .card:nth-child(even) {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-areas: "texto" "imagem";
+        gap: 16px;
       }
     }
   </style>
@@ -751,36 +514,6 @@
   <div class="bg">
     <div class="bg__image"></div>
     <div class="bg__scrim"></div>
-    <div class="lightning-overlay" id="lightning"></div>
-    <canvas id="rain-canvas"></canvas>
-  </div>
-
-  <!-- FLAG / MENU DROPDOWN -->
-  <div class="top-flag-container">
-    <button class="flag-btn" onclick="toggleDropdown()">
-      🎵 Controles <span id="flag-icon">⏷</span>
-    </button>
-
-    <div class="dropdown-panel" id="dropdown-panel">
-      <div class="music-widget" id="music-widget">
-        <!-- Imagem da música -->
-        <img src="image.jpg" alt="Capa da Música">
-
-        <div class="music-info">
-          <span class="title">7 Weeks & 3 Days</span>
-          <span class="artist">IcyBeast</span>
-        </div>
-      </div>
-
-      <div class="action-buttons">
-        <button class="control-btn music-toggle" onclick="toggleMusic()">▶️ Tocar Música</button>
-        <button class="control-btn rain-toggle" onclick="toggleRain()">🌧️ Pausar Chuva</button>
-      </div>
-    </div>
-  </div>
-
-  <div class="sound-hint" id="sound-hint">
-    Dê um clique na tela para ativar o clima
   </div>
 
   <div class="wrap">
@@ -791,8 +524,9 @@
       </div>
 
       <div class="avatar-container">
-        <!-- Avatar ilustrado da pessoinha -->
-        <img src="https://api.dicebear.com/7.x/notionists/svg?seed=Pedro&backgroundColor=f4efe8" alt="Avatar de Pedro Gabriel" class="avatar">
+        <div class="avatar">
+          <img src="avatar-pedro.webp" alt="Ilustração de Pedro Gabriel" width="430" height="430">
+        </div>
       </div>
     </header>
 
@@ -804,95 +538,89 @@
       </p>
 
       <p>
-        Olhando para o meu futuro, meu grande objetivo é unir as coisas que mais amo. Quero trabalhar profissionalmente com HTML e tecnologias web para desenvolver sistemas incríveis, e paralelamente mergulhar de cabeça no universo da criação de jogos.
+        Olhando para o meu futuro, meu grande objetivo é unir as coisas que mais amo. Quero trabalhar profissionalmente com tecnologias web para desenvolver sistemas incríveis, e paralelamente mergulhar de cabeça no universo da criação de jogos.
       </p>
     </section>
 
     <section class="section">
       <h2>Minhas Entregas</h2>
 
-      <div class="timeline">
-        
-        <div class="timeline-item left">
-          <div class="timeline-dot"></div>
-
-          <div class="card">
+      <div class="entregas">
+        <article class="card">
+          <div class="entrega-texto">
             <h3>Capa do Meu Álbum</h3>
             <span class="date">Entrega 01</span>
-
-            <div class="entrega-image">
-              <img class="entrega-img" src="../entregas/capa-album.jpg" alt="Imagem da entrega: Capa do Meu Álbum" onclick="openLightbox(this.src)" onerror="this.closest('.entrega-image').style.display='none'">
-            </div>
 
             <p>
               Aprendi a expressar minha identidade visual e traduzir referências estéticas na criação de uma capa gráfica exclusiva.
             </p>
 
-            <a href="https://github.com/pgbbranco/capa-do-album" target="_blank" rel="noopener noreferrer">Acessar Repositório ↗</a>
+            <div class="entrega-links">
+              <a href="https://github.com/pgbbranco/capa-do-album" target="_blank" rel="noopener noreferrer">Acessar Repositório ↗</a>
+            </div>
           </div>
-        </div>
+          <button class="entrega-image" type="button" onclick="openLightbox(this.firstElementChild)">
+            <img class="entrega-img" src="../entregas/capa-album.jpg" width="1254" height="1254" alt="Imagem da entrega: Capa do Meu Álbum" loading="lazy" onerror="this.parentElement.hidden = true">
+          </button>
+        </article>
 
-        <div class="timeline-item right">
-          <div class="timeline-dot"></div>
-
-          <div class="card">
+        <article class="card">
+          <div class="entrega-texto">
             <h3>Árvore das Profissões</h3>
             <span class="date">Entrega 02</span>
-
-            <div class="entrega-image">
-              <img class="entrega-img" src="https://raw.githubusercontent.com/pgbbranco/arvore-das-profissoes/main/arvore.png" alt="Árvore das profissões da minha família" onclick="openLightbox(this.src)" onerror="this.closest('.entrega-image').style.display='none'">
-            </div>
 
             <p>
               Registrei as profissões e tarefas de familiares de diferentes gerações e pesquisei como essas áreas podem mudar com a inteligência artificial.
             </p>
 
-            <a href="https://github.com/pgbbranco/arvore-das-profissoes" target="_blank" rel="noopener noreferrer">Acessar Repositório ↗</a>
+            <div class="entrega-links">
+              <a href="https://github.com/pgbbranco/arvore-das-profissoes" target="_blank" rel="noopener noreferrer">Acessar Repositório ↗</a>
+            </div>
           </div>
-        </div>
+          <button class="entrega-image" type="button" onclick="openLightbox(this.firstElementChild)">
+            <img class="entrega-img" src="https://raw.githubusercontent.com/pgbbranco/arvore-das-profissoes/main/arvore.png" width="1366" height="768" alt="Árvore das profissões da minha família" loading="lazy" onerror="this.parentElement.hidden = true">
+          </button>
+        </article>
 
-        <!-- ENTREGA 03: MUNDO SENAI 2026 -->
-        <div class="timeline-item left">
-          <div class="timeline-dot"></div>
-
-          <div class="card">
+        <article class="card">
+          <div class="entrega-texto">
             <h3>Mundo SENAI 2026</h3>
             <div class="senai-acoes">
               <span class="date">Entrega 03</span>
               <button type="button" class="date btn-info-senai" onclick="openSenaiModal()">O que é o MUNDO SENAI?</button>
             </div>
 
-            <!-- Foto do evento: aparece automaticamente quando estande.jpg for publicado -->
-            <div class="entrega-image"><img class="entrega-img" src="https://raw.githubusercontent.com/pgbbranco/mundo-senai/main/fotos/estande.jpg" alt="Foto do Mundo SENAI" onclick="openLightbox(this.src)" onerror="this.closest('.entrega-image').style.display='none'"></div>
-
             <p>
               Grupo 2 — Front-end na prática. Os visitantes modificavam a interface por meio de um controlador interativo. Minha fala abordou AI Slop, seus sinais e como evitá-lo com revisão e decisões conscientes de design.
             </p>
 
-                        <a href="https://v0-frontshit.vercel.app/" target="_blank" rel="noopener noreferrer">Ver Apresentação ↗</a>
-            <a href="https://github.com/pgbbranco/mundo-senai/tree/main/apresentacao-grupo-2" target="_blank" rel="noopener noreferrer">Acessar pasta ↗</a>
+            <div class="entrega-links">
+              <a href="https://v0-frontshit.vercel.app/" target="_blank" rel="noopener noreferrer">Ver Apresentação ↗</a>
+              <a href="https://github.com/pgbbranco/mundo-senai/tree/main/apresentacao-grupo-2" target="_blank" rel="noopener noreferrer">Acessar pasta ↗</a>
+            </div>
           </div>
-        </div>
+          <button class="entrega-image" type="button" onclick="openLightbox(this.firstElementChild)">
+            <img class="entrega-img" src="https://raw.githubusercontent.com/pgbbranco/mundo-senai/main/docs/prints/final-slide20-parte3.png" width="1350" height="851" alt="Slide da apresentação do Mundo SENAI sobre sinais de AI Slop no código" loading="lazy" onerror="this.parentElement.hidden = true">
+          </button>
+        </article>
 
-        <div class="timeline-item right">
-          <div class="timeline-dot"></div>
-
-          <div class="card">
+        <article class="card">
+          <div class="entrega-texto">
             <h3>Janela de Johari</h3>
             <span class="date">Entrega 04</span>
-
-            <div class="entrega-image">
-              <img class="entrega-img" src="https://raw.githubusercontent.com/pgbbranco/janela-de-johari/main/janela-de-johari.png" alt="Janela de Johari preenchida" onclick="openLightbox(this.src)" onerror="this.closest('.entrega-image').style.display='none'">
-            </div>
 
             <p>
               Preenchi os quatro quadrantes da Janela de Johari para comparar como eu me vejo e como os outros me percebem.
             </p>
 
-            <a href="https://github.com/pgbbranco/janela-de-johari" target="_blank" rel="noopener noreferrer">Acessar Repositório ↗</a>
+            <div class="entrega-links">
+              <a href="https://github.com/pgbbranco/janela-de-johari" target="_blank" rel="noopener noreferrer">Acessar Repositório ↗</a>
+            </div>
           </div>
-        </div>
-
+          <button class="entrega-image" type="button" onclick="openLightbox(this.firstElementChild)">
+            <img class="entrega-img" src="https://raw.githubusercontent.com/pgbbranco/janela-de-johari/main/janela-de-johari.png" width="1650" height="766" alt="Janela de Johari preenchida" loading="lazy" onerror="this.parentElement.hidden = true">
+          </button>
+        </article>
       </div>
     </section>
 
@@ -928,172 +656,6 @@
   </div>
 
   <script>
-    // Configuração do Áudio de Clima
-    const rainAudio = new Audio('https://actions.google.com/sounds/v1/weather/rain_heavy_loud.ogg');
-    rainAudio.loop = true; 
-    rainAudio.volume = 0.12;
-
-    const thunderAudio = new Audio('https://actions.google.com/sounds/v1/weather/thunder_far_away.ogg');
-    thunderAudio.volume = 0.5; 
-    
-    let audioStarted = false; 
-    let nextLightningTimeout;
-
-    const musicAudio = new Audio('musica.mp3'); 
-    musicAudio.loop = true; 
-    musicAudio.volume = 0.15; 
-    let musicPlaying = false;
-
-    document.body.addEventListener('click', function startAudio() {
-      if (!audioStarted && raining) {
-        rainAudio.play().catch(()=>{});
-        audioStarted = true;
-        document.getElementById('sound-hint').style.display = 'none';
-        scheduleNextLightning();
-      }
-    }, { once: true });
-
-    // Menu Dropdown da Flag
-    function toggleDropdown() {
-      const panel = document.getElementById('dropdown-panel');
-      const icon = document.getElementById('flag-icon');
-
-      panel.classList.toggle('open');
-      icon.innerText = panel.classList.contains('open') ? '⏶' : '⏷';
-    }
-
-    function toggleMusic() {
-      musicPlaying = !musicPlaying;
-
-      const btn = document.querySelector('.music-toggle');
-      const widget = document.getElementById('music-widget');
-
-      if (musicPlaying) {
-        musicAudio.play().catch(e => alert("Clique na tela antes de tocar a música!"));
-        btn.innerHTML = '⏸️ Pausar Música';
-        widget.classList.add('active');
-      } else {
-        musicAudio.pause();
-        btn.innerHTML = '▶️ Tocar Música';
-        widget.classList.remove('active');
-      }
-    }
-
-    function triggerLightning() {
-      if (!raining || !audioStarted) return;
-
-      const flash = document.getElementById('lightning');
-      flash.style.opacity = '0.5'; 
-
-      setTimeout(() => {
-        flash.style.opacity = '0';
-      }, 300);
-
-      thunderAudio.currentTime = 0; 
-      thunderAudio.play().catch(()=>{});
-      scheduleNextLightning();
-    }
-
-    function scheduleNextLightning() {
-      clearTimeout(nextLightningTimeout);
-
-      const randomDelay =
-        Math.floor(Math.random() * (15000 - 8000 + 1)) + 8000;
-
-      nextLightningTimeout = setTimeout(triggerLightning, randomDelay);
-    }
-
-    const canvas = document.getElementById('rain-canvas'); 
-    const ctx = canvas.getContext('2d');
-
-    let drops = []; 
-    let raining = true; 
-    let wind = 0.15;
-
-    function resize() {
-      canvas.width = window.innerWidth; 
-      canvas.height = window.innerHeight;
-
-      drops = []; 
-
-      const density =
-        Math.floor((canvas.width * canvas.height) / 8000);
-
-      for (let i = 0; i < density; i++) {
-        drops.push({ 
-          x: Math.random() * canvas.width, 
-          y: Math.random() * canvas.height, 
-          length: 8 + Math.random() * 20, 
-          speed: 5 + Math.random() * 8, 
-          opacity: 0.25 + Math.random() * 0.35, 
-          width: 1.0 + Math.random() * 1.5 
-        });
-      }
-    }
-
-    function draw() {
-      if (!raining) return;
-
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      for (let i = 0; i < drops.length; i++) {
-        let d = drops[i]; 
-
-        ctx.beginPath(); 
-        ctx.moveTo(d.x, d.y); 
-        ctx.lineTo(
-          d.x - wind * d.length, 
-          d.y + d.length
-        );
-
-        ctx.strokeStyle =
-          `rgba(139, 94, 60, ${d.opacity})`;
-
-        ctx.lineWidth = d.width; 
-        ctx.lineCap = 'round'; 
-        ctx.stroke();
-
-        d.y += d.speed; 
-        d.x += wind * d.speed;
-
-        if (d.y > canvas.height) {
-          d.y = -d.length; 
-          d.x = Math.random() * canvas.width; 
-        }
-
-        if (d.x < -50) d.x = canvas.width + 50; 
-        if (d.x > canvas.width + 50) d.x = -50;
-      }
-
-      requestAnimationFrame(draw);
-    }
-
-    function toggleRain() {
-      raining = !raining; 
-
-      const btn = document.querySelector('.rain-toggle');
-
-      if (raining) { 
-        btn.innerHTML = '🌧️ Pausar Chuva'; 
-
-        if (audioStarted) { 
-          rainAudio.play(); 
-          scheduleNextLightning(); 
-        }
-
-        draw(); 
-      } else { 
-        btn.innerHTML = '⛅ Ativar Chuva'; 
-        rainAudio.pause(); 
-        clearTimeout(nextLightningTimeout); 
-        ctx.clearRect(0, 0, canvas.width, canvas.height); 
-      }
-    }
-
-    window.addEventListener('resize', resize); 
-    resize(); 
-    draw();
-
     // Dialog / Modal "O que é o MUNDO SENAI?"
     function openSenaiModal() {
       document.getElementById('senai-modal').classList.add('open');
@@ -1110,14 +672,19 @@
     }
 
     // Lightbox
-    function openLightbox(src) {
-      document.getElementById('lightbox-img').src = src;
+    function openLightbox(image) {
+      const preview = document.getElementById('lightbox-img');
+      preview.src = image.currentSrc || image.src;
+      preview.alt = image.alt;
       document.getElementById('lightbox').classList.add('open');
     }
 
     function closeLightbox() {
       document.getElementById('lightbox').classList.remove('open');
     }
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') closeLightbox();
+    });
   </script>
 </body>
 </html>
